@@ -9,6 +9,7 @@ namespace LeaveManagmentSystem.web.Models.LeaveTypes
         public string name { get; set; }
         [Required]
         [Range(1,90)]
+        [Display(Name = "Maximum Allocation of Days")]
         public int NumberOfDays { get; set; }
     }
 }

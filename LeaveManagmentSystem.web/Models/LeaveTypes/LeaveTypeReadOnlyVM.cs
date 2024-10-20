@@ -1,9 +1,12 @@
-﻿namespace LeaveManagmentSystem.web.Models.LeaveTypes
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LeaveManagmentSystem.web.Models.LeaveTypes
 {
-    public class LeaveTypeReadOnlyVM
+    public class LeaveTypeReadOnlyVM: BaseLeaveTypeVM
     {
-        public int Id { get; set; }
+        
         public string name { get; set; }
+        [Display(Name = "Maximum Allocation of Days")]
         public int NumberOfDays { get; set; }
     }
 }
