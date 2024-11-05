@@ -13,6 +13,7 @@ using LeaveManagmentSystem.web.Services;
 
 namespace LeaveManagmentSystem.web.Controllers
 {
+    [Authorize(Roles ="Administrator")]
     public class LeaveTypesController(ILeaveTypeServices _leaveTypeServices) : Controller
     {
         
@@ -67,7 +68,7 @@ namespace LeaveManagmentSystem.web.Controllers
 
             if (ModelState.IsValid)
             {
-                _leaveTypeServices.Create(leaveTypeCreate);
+                await _leaveTypeServices.Create(leaveTypeCreate);
                 return RedirectToAction(nameof(Index));
             }
             return View(leaveTypeCreate);
@@ -115,7 +116,7 @@ namespace LeaveManagmentSystem.web.Controllers
             {
                 try
                 {
-                    _leaveTypeServices.Edit(leaveTypeEdit);
+                   await _leaveTypeServices.Edit(leaveTypeEdit);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
